@@ -94,13 +94,13 @@ uglyURLs = false
     # 名字
     name = "superstrings"
     # 邮箱
-    email = "i@superstrings.com"
+    email = "i@superstrings.xyz"
     # 座右铭或简介
     motto = "Just for Fun"
     # 头像
     avatar = "/icons/apple-touch-icon.png"
     # 网站（默认值：baseURL）
-    website = "https://superstrings.com/"
+    website = "https://superstrings.xyz/"
     # 推特
     twitter = "superstrings"
 
@@ -267,7 +267,7 @@ uglyURLs = false
         weight = 2
         pre = "external"
     [[menu.socials]]
-        url = "mailto:i@superstrings.com"
+        url = "mailto:i@superstrings.xyz"
         name = "Email"
         weight = 3
         pre = "external"
@@ -353,13 +353,13 @@ uglyURLs = false
     ## 「诗意人生」
     # 诗句，支持 Markdown
     homePoetry = ["暗夜中", "渴望一束光的关怀", "在白天", "却更渴望黑洞的吞噬", "因为好奇心，想看看黑暗中有什么"]
-    # 底部链接的内间距，单位：em https://gateway.pinata.cloud/ipns/superstrings.com
+    # 底部链接的内间距，单位：em https://gateway.pinata.cloud/ipns/superstrings.xyz
     homeLinksPadding = 1
 
     ## 「视频片段」
     homePoster = "./images/dog.jpg"
-    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.webm"
-    homeVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.mp4"
+    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.webm"
+    homeVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.mp4"
     homeLogo = "/icons/android-chrome-512x512.png"
     homeLogoLink = "/home/"
     homeTitle = "SuperStrings"
@@ -1063,9 +1063,9 @@ uglyURLs = false
     #      的的优先级高于此处
 
     # 仓库地址
-    repoURL = "https://github.com/superstrings/superstrings.com"
+    repoURL = "https://github.com/superstrings/superstrings.xyz"
     # 编辑地址
-    repoEditURL = "https://github.com/superstrings/superstrings.com/blob/master"
+    repoEditURL = "https://github.com/superstrings/superstrings.xyz/blob/master"
 
     # Git 的图标
     gitIcon = "code-branch"
@@ -1271,8 +1271,8 @@ uglyURLs = false
     fofPoster = "./images/dog.jpg"
 
     # 视频地址
-    fofVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.webm"
-    fofVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.mp4"
+    fofVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.webm"
+    fofVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.mp4"
     # 说明：视频地址可留空（""）
 
 
