@@ -1,8 +1,8 @@
 ##########################################
 # 站点配置
 
-baseURL = "https://cfzhous.com/"
-title = "cfzhous - Just for Fun"
+baseURL = "https://superstrings.xyz/"
+title = "superstrings - Just for Fun"
 languageCode = "zh-CN"
 hasCJKLanguage = true
 # 版权信息（支持 Markdown）
@@ -92,17 +92,17 @@ uglyURLs = false
 # 作者信息
 [author]
     # 名字
-    name = "cfzhous"
+    name = "superstrings"
     # 邮箱
-    email = "i@cfzhous.com"
+    email = "i@superstrings.com"
     # 座右铭或简介
     motto = "Just for Fun"
     # 头像
     avatar = "/icons/apple-touch-icon.png"
     # 网站（默认值：baseURL）
-    website = "https://cfzhous.com/"
+    website = "https://superstrings.com/"
     # 推特
-    twitter = "cfzhous"
+    twitter = "superstrings"
 
 # 相关文章
 [related]
@@ -208,15 +208,15 @@ uglyURLs = false
         pre = "internal"
         post = "home"
     [[menu.main]]
-        url = "/life/"
-        name = "生活"
-        weight = 2
+        url = "/tutorial/"
+        name = "教程"
+        weight = 3
         pre = "internal"
         post = "cat"
     [[menu.main]]
-        url = "/tech/"
-        name = "技术"
-        weight = 3
+        url = "/tools/"
+        name = "工具"
+        weight = 2
         pre = "internal"
         post = "wpexplorer"
     [[menu.main]]
@@ -245,7 +245,7 @@ uglyURLs = false
         weight = 1
         pre = "internal"
     [[menu.home]]
-        url = "https://t.me/cfzhous"
+        url = "https://t.me/superstrings"
         name = "Telegram"
         weight = 2
         pre = "external"
@@ -257,17 +257,17 @@ uglyURLs = false
 
     ## 社交栏
     [[menu.socials]]
-        url = "https://github.com/cfzhous"
+        url = "https://github.com/superstrings"
         name = "GitHub"
         weight = 1
         pre = "external"
     [[menu.socials]]
-        url = "https://twitter.com/cfzhous"
+        url = "https://twitter.com/superstrings"
         name = "Twitter"
         weight = 2
         pre = "external"
     [[menu.socials]]
-        url = "mailto:i@cfzhous.com"
+        url = "mailto:i@superstrings.com"
         name = "Email"
         weight = 3
         pre = "external"
@@ -353,13 +353,13 @@ uglyURLs = false
     ## 「诗意人生」
     # 诗句，支持 Markdown
     homePoetry = ["暗夜中", "渴望一束光的关怀", "在白天", "却更渴望黑洞的吞噬", "因为好奇心，想看看黑暗中有什么"]
-    # 底部链接的内间距，单位：em https://gateway.pinata.cloud/ipns/cfzhous.com
+    # 底部链接的内间距，单位：em https://gateway.pinata.cloud/ipns/superstrings.com
     homeLinksPadding = 1
 
     ## 「视频片段」
-    homePoster = "./images/starts.jpg"
-    homeVideoWebm = "https://gateway.pinata.cloud/ipns/cfzhous.com/videos/starts.webm"
-    homeVideoMp4 = "https://gateway.pinata.cloud/ipns/cfzhous.com/videos/starts.mp4"
+    homePoster = "./images/dog.jpg"
+    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.webm"
+    homeVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.mp4"
     homeLogo = "/icons/android-chrome-512x512.png"
     homeLogoLink = "/home/"
     homeTitle = "SuperStrings"
@@ -377,7 +377,7 @@ uglyURLs = false
     # 说明：用于 JSON-LD、Open Graph
 
     # 站点的描述
-    siteDescription = "这是 cfzhous 的生活与技术博客！"
+    siteDescription = "这是 superstrings 的工具教程博客！"
     # 说明：用于 HTML 的头部元数据、JSON-LD、
     #      Open Graph、Atom、RSS
 
@@ -391,7 +391,7 @@ uglyURLs = false
     # 注意：请保持此格式，更改数字
 
     # 站点的推特帐号
-    siteTwitter = "cfzhous"
+    siteTwitter = "superstrings"
     # 说明：用于 Twitter Cards
 
 
@@ -499,7 +499,7 @@ uglyURLs = false
     # 说明：分区的名字即站点的 content 目录下
     #      的文件夹的名字。
 
-    mainSections = ["life", "tech"]
+    mainSections = ["tutorial", "tools","reso"]
 
 
     ######################################
@@ -596,7 +596,7 @@ uglyURLs = false
 
     enableServiceWorker = true
     # 说明：需要第三方支持，暂见：
-    #      https://io-oi.me/tech/pwa-via-workbox/
+    #      https://io-oi.me/tools/pwa-via-workbox/
 
 
     ######################################
@@ -1063,9 +1063,9 @@ uglyURLs = false
     #      的的优先级高于此处
 
     # 仓库地址
-    repoURL = "https://github.com/cfzhous/cfzhous.com"
+    repoURL = "https://github.com/superstrings/superstrings.com"
     # 编辑地址
-    repoEditURL = "https://github.com/cfzhous/cfzhous.com/blob/master"
+    repoEditURL = "https://github.com/superstrings/superstrings.com/blob/master"
 
     # Git 的图标
     gitIcon = "code-branch"
@@ -1271,8 +1271,8 @@ uglyURLs = false
     fofPoster = "./images/dog.jpg"
 
     # 视频地址
-    fofVideoWebm = "https://gateway.pinata.cloud/ipns/cfzhous.com/videos/dog.webm"
-    fofVideoMp4 = "https://gateway.pinata.cloud/ipns/cfzhous.com/videos/dog.mp4"
+    fofVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.webm"
+    fofVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.com/videos/dog.mp4"
     # 说明：视频地址可留空（""）
 
 
@@ -1305,14 +1305,14 @@ uglyURLs = false
         pre = "internal"
         post = "home"
     [[languages.en-us.menu.main]]
-        url = "/en-us//life/"
-        name = "Life"
+        url = "/en-us//tutorial/"
+        name = "Tutorial"
         weight = 2
         pre = "internal"
         post = "cat"
     [[languages.en-us.menu.main]]
-        url = "/en-us//tech/"
-        name = "Tech"
+        url = "/en-us//tools/"
+        name = "tools"
         weight = 3
         pre = "internal"
         post = "wpexplorer"
@@ -1341,7 +1341,7 @@ uglyURLs = false
         weight = 1
         pre = "internal"
     [[languages.en-us.menu.home]]
-        url = "https://t.me/cfzhous"
+        url = "https://t.me/superstrings"
         name = "Telegram"
         weight = 2
         pre = "external"
@@ -1352,7 +1352,7 @@ uglyURLs = false
         pre = "external"
 [languages.en-us.params]
     homePoetry = ["In the dark night", "Longing for a light of care", "In the daylight", "Desiring for the swallow of a black hole", "’Cause curiosity — seeks for what’s in the darkness"]
-    siteDescription = "Blog of cfzhous in English."
+    siteDescription = "Blog of superstrings in English."
     listDateFormat = "January 2"
     postWidth = 32
     fontFamilyTitle = "Comfortaa, sans-serif"
