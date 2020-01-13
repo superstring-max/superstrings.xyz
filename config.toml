@@ -257,7 +257,7 @@ uglyURLs = false
 
     ## 社交栏
     [[menu.socials]]
-        url = "https://github.com/superstrings"
+        url = "https://github.com/superstring-max"
         name = "GitHub"
         weight = 1
         pre = "external"
@@ -1063,9 +1063,9 @@ uglyURLs = false
     #      的的优先级高于此处
 
     # 仓库地址
-    repoURL = "https://github.com/superstrings/superstrings.xyz"
+    repoURL = "https://github.com/superstring-max/superstrings.xyz"
     # 编辑地址
-    repoEditURL = "https://github.com/superstrings/superstrings.xyz/blob/master"
+    repoEditURL = "https://github.com/superstring-max/superstrings.xyz/blob/master"
 
     # Git 的图标
     gitIcon = "code-branch"
