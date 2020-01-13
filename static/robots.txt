@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /uploads/
+Sitemap: https://cfzhous.com/sitemap.xml

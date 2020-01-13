@@ -1,0 +1,22 @@
+{{ define "main" }}
+    <main class="main list" id="main">
+        <div class="main-inner">
+            <div class="content list-coldplay">
+                <h1 class="list-title">{{ .Title }}</h1>
+                <div class="post-body">
+                    <hr class="coldplay" />
+                    {{ with .Params.banner }}
+                        <img src="{{ . }}" alt="{{ path.Base . }}"{{ if $.Site.Params.enableMediumZoom }} data-zoomable{{ end }} />
+                    {{ end }}
+                    <ul class="list-part">
+                        {{ range .RegularPages }}
+                            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                        {{ end }}
+                    </ul>
+                    <hr class="coldplay" />
+                    <div class="coldplay-footer">— updated @ {{ .Lastmod.Format "2006-01-02 15:04:05" }}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+{{ end }}

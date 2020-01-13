@@ -1,0 +1,40 @@
+.viva-la-vida {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Cinzel Decorative', serif !important;
+    background-image: linear-gradient(90deg,#a166ab 0,#a166ab 40%,#ef4e7b 45%,#f37055 50%,#ef4e7b 55%,#a166ab 60%,#a166ab 100%);
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+hr.coldplay {
+    background-image: url(../images/rainbow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 3px;
+    &::after {
+        content: none;
+    }
+}
+.coldplay-footer {
+    text-align: right;
+    font-size: 80%;
+}
+
+.list-coldplay {
+    hr {
+        border: none;
+        margin: 2.427em 0 1.5em;
+    }
+    img {
+        display: block;
+        margin: 2em auto;
+        max-width: 100%;
+    }
+    ul {
+        padding-left: 2em;
+        line-height: $lineHeight;
+        list-style-type: disc;
+    }
+}
