@@ -358,7 +358,7 @@ uglyURLs = false
 
     ## 「视频片段」
     homePoster = "./images/dog.jpg"
-    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/tree.webm"
+    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.webm"
     homeVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.mp4"
     homeLogo = "/icons/android-chrome-512x512.png"
     homeLogoLink = "/home/"
