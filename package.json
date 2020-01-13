@@ -1,5 +1,5 @@
 {
-  "name": "cfzhous.com",
+  "name": "superstrings.xyz",
   "version": "1.0.0",
   "description": "Blog of Mine",
   "main": "index.js",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cfzhous/cfzhous.com.git"
+    "url": "git+https://github.com/superstring-max/superstrings.xyz.git"
   },
   "keywords": [
     "blog",
     "hugo",
     "hugo-theme-meme"
   ],
-  "author": "cfzhous",
+  "author": "superstring-max",
   "license": "CC-BY-NC-SA-4.0",
   "bugs": {
-    "url": "https://github.com/cfzhous/cfzhous.com/issues"
+    "url": "https://github.com/superstring-max/superstrings.xyz/issues"
   },
-  "homepage": "https://github.com/cfzhous/cfzhous.com#readme",
+  "homepage": "https://github.com/superstring-max/superstrings.xyz#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-uglify": "^3.0.2",

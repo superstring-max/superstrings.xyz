@@ -7,7 +7,7 @@ workbox.setConfig({
 });
 
 workbox.core.setCacheNameDetails({
-    prefix: "cfzhous"
+    prefix: "superstring-max"
 });
 
 workbox.core.skipWaiting();

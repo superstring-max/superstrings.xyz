@@ -8,6 +8,6 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "https://cfzhous.netlify.com/*"
-  to = "https://cfzhous.com/:splat"
+  from = "https://superstrings.netlify.com/*"
+  to = "https://superstrings.xyz/:splat"
   force = true
