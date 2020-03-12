@@ -1,0 +1,77 @@
+{{ define "main" }}
+    <!-- 引入 echarts.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts.min.js"></script>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:80%;height:800px;left:center"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        myChart.showLoading();    //显示Loading标志； var myChart = echarts.init(document.getElementById('页面中div的id')); 
+        $.get('/data/flare.json', function (data) {
+            myChart.on("click", clickFun);
+            myChart.hideLoading();    //得到数据后隐藏Loading标志
+        
+            echarts.util.each(data.children, function (datum, index) {
+                index % 2 === 0 && (datum.collapsed = true);
+            });    //间隔展开子数据，animate，display，physics，scale，vis是展开的
+        
+            myChart.setOption(option = {
+                tooltip: {    //提示框组件
+                    trigger: 'item',    //触发类型，默认：item（数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用）。可选：'axis'：坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。'none':什么都不触发。
+                    triggerOn: 'mousemove'    //提示框触发的条件，默认mousemove|click（鼠标点击和移动时触发）。可选mousemove：鼠标移动时，click：鼠标点击时，none：        
+                },
+                series: [    //系列列表
+                    {
+                        type: 'tree',    //树形结构
+        
+                        data: [data],    //上面从flare.json中得到的数据
+        
+                        top: '1%',       //距离上
+                        left: '8%',      //左
+                        bottom: '1%',    //下
+                        right: '10%',    //右的距离
+        
+                        symbolSize: 10,   //标记的大小，就是那个小圆圈，默认7
+        
+                        label: {         //每个节点所对应的标签的样式
+                            normal: {
+                                position: 'left',       //标签的位置
+                                verticalAlign: 'middle',//文字垂直对齐方式，默认自动。可选：top，middle，bottom
+                                align: 'right',         //文字水平对齐方式，默认自动。可选：top，center，bottom
+                                fontSize: 12             //标签文字大小
+                            }
+                        },
+        
+                        leaves: {    //叶子节点的特殊配置，如上面的树图示例中，叶子节点和非叶子节点的标签位置不同
+                            label: {
+                                normal: {
+                                    position: 'right',
+                                    verticalAlign: 'middle',
+                                    align: 'left'
+                                }
+                            }
+                        },
+        
+                        expandAndCollapse: true,    //子树折叠和展开的交互，默认打开
+                        animationDuration: 550,     //初始动画的时长，支持回调函数,默认1000
+                        animationDurationUpdate: 750//数据更新动画的时长，默认300
+                    }
+                ]   
+            });
+        });
+        window.onresize=function(){
+            myChart.resize();
+        };
+        function clickFun(param) {
+            var option = myChart.getOption();
+            var data = param.data;
+            if (data != null && data != undefined) {
+                if (data.url != null && data.url != undefined) {
+                    // alert(data.url);
+                    window.open(data.url);
+                }
+            }
+        }
+    </script>
+{{ end }}

@@ -6,13 +6,13 @@ title = "superstrings - Just for Fun"
 languageCode = "zh-CN"
 hasCJKLanguage = true
 # 版权信息（支持 Markdown）
-copyright = "在保留本文作者及本文链接的前提下，非商业用途随意转载分享。"
+copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 
 # 主题选择
 theme = "meme"
 
 # `hugo new` 新建文章自动打开的文本编辑器
-newContentEditor = "gedit"
+newContentEditor = ""
 
 # i18n
 defaultContentLanguage = "zh-cn"
@@ -25,7 +25,7 @@ pluralizeListTitles = false
 summaryLength = 42
 
 # 是否开启 GitHub 风格的 Emoji 书写方式
-enableEmoji = false
+enableEmoji = true
 
 # 脚注的返回链接中的文本
 footnoteReturnLinkContents = "↩"
@@ -34,7 +34,7 @@ footnoteReturnLinkContents = "↩"
 enableGitInfo = true
 
 # 是否生成 robots.txt 文件
-enableRobotsTXT = false
+enableRobotsTXT = true
 
 # 每一分页的文章数（仅对「文章摘要」首页布局有效）
 paginate = 5
@@ -85,8 +85,8 @@ uglyURLs = false
         lineNumbersInTable = true
         noClasses = false
     [markup.tableOfContents]
-        startLevel = 2
-        endLevel = 6
+        startLevel = 2  # TOC的标题开始层数（H1
+        endLevel = 6    # TOC的标题结束层数（H6）
         ordered = true
 
 # 作者信息
@@ -155,7 +155,8 @@ uglyURLs = false
 # 菜单配置
 
 # MemE 主题支持以下四种菜单：
-# 1. main       顶栏下方的菜单栏
+# 1. main       顶栏下方（居中布局）或里面（弹性
+#               布局）的菜单栏
 # 2. home       首页的底部链接（适用于「诗意
 #               人生」和「视频片段」布局）
 # 3. socials    社交栏（关于页面的极简页脚）
@@ -167,7 +168,10 @@ uglyURLs = false
 # weight        位置
 # pre           内链（internal）或外链（external）
 # post          图标（留空（""）则无）
-# identifier    图标的 Class 名（菜单栏无效）
+# identifier    图标的 Class 名
+#               （对于弹性布局的顶栏有两个特殊
+#               的值：`theme-switcher`、
+#               `lang-switcher`）
 
 [menu]
     ## 菜单栏
@@ -201,6 +205,12 @@ uglyURLs = false
     #     weight = 5
     #     pre = "internal"
     #     post = "user-circle"
+    # [[menu.main]]
+    #     weight = 6
+    #     identifier = "theme-switcher"
+    # [[menu.main]]
+    #     weight = 7
+    #      identifier = "lang-switcher"
     [[menu.main]]
         url = "/home/"
         name = "首页"
@@ -237,6 +247,12 @@ uglyURLs = false
         weight = 9
         pre = "internal"
         post = "self"
+    [[menu.main]]
+        weight = 10
+        identifier = "theme-switcher"
+    [[menu.main]]
+        weight = 11
+        identifier = "lang-switcher"
 
     # 首页的底部链接
     [[menu.home]]
@@ -294,17 +310,40 @@ uglyURLs = false
     # 顶栏
 
     # 是否开启
-    enableHeader = false
+    enableHeader = true
 
     # 是否在首页显示
     displayHeaderInHome = false
+    # 说明：对弹性布局的顶栏无效
+
+    # 背景
+    headerBackground = "linear-gradient(90deg, #f795331a 0, #f370551a 15%, #ef4e7b1a 30%, #a166ab1a 44%, #5073b81a 58%, #1098ad1a 72%, #07b39b1a 86%, #6dba821a 100%)"
+    # 说明：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
+
+    # 顶栏布局
+    headerLayout = "center"
+    # 说明：居中布局（center）或弹性布局（flex）
+
+    # 顶栏宽度的回退值
+    headerFallbackWidth = "36em"
+    # 说明：默认情况，MemE 使用 main-inner 元素
+    #      的宽度作为顶栏宽度，但是在一些页面（比
+    #      如「诗意人生」和「视频片段」布局的首页），
+    #      不存在 main-inner 元素，所以你需要为
+    #      这种情况给一个回退值。
+
+    # 在窄视图下隐藏菜单栏并显示一个按钮？
+    enableNavToggle = true
+
+    navHeight = "10em"
+    # 说明：菜单栏展开时的高度
 
 
     ######################################
     # 品牌栏（在顶栏内）
 
     # 是否使用 SVG 图片
-    siteBrandSVG = true
+    siteBrandSVG = false
     # 如果是，请将你的 SVG 放到 `SVG.toml` 文
     # 件内，并配置以下项。单位：px。
     siteBrandSVGWidth = 250
@@ -313,14 +352,8 @@ uglyURLs = false
     # 如果否，则会使用你的站点标题作为默认值，并
     # 以文字的形式显示，下方可配置字号和字色。字
     # 体请到底部的字体部分配置。单位：em。
-    siteBrandFontSize = 5
-    siteBrandFontColor = "#fff"
-
-    # 背景色
-    # siteBrandBackgroundColor = "hsl(240, 8%, 12%)"
-    # 背景图片
-    siteBrandBackgroundImage = "linear-gradient(90deg, #f79533 0, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%)"
-    # 注意：背景色和背景图片只能二选一
+    siteBrandFontSize = 1
+    siteBrandFontColor = "var(--color-contrast-high)"
 
 
     ######################################
@@ -328,9 +361,11 @@ uglyURLs = false
 
     # 是否开启
     enableMenu = true
+    # 说明：对弹性布局的顶栏无效
 
     # 是否在首页显示
     displayMenuInHome = false
+    # 说明：对弹性布局的顶栏无效
 
     # 是否按文章分区高亮当前菜单项
     activeInSection = false
@@ -353,19 +388,19 @@ uglyURLs = false
     ## 「诗意人生」
     # 诗句，支持 Markdown
     homePoetry = ["暗夜中", "渴望一束光的关怀", "在白天", "却更渴望黑洞的吞噬", "因为好奇心，想看看黑暗中有什么"]
-    # 底部链接的内间距，单位：em https://gateway.pinata.cloud/ipns/superstrings.xyz
+    # 底部链接的内间距，单位：em
     homeLinksPadding = 1
 
     ## 「视频片段」
-    homePoster = "./images/dog.jpg"
-    homeVideoWebm = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.webm"
-    homeVideoMp4 = "https://gateway.pinata.cloud/ipns/superstrings.xyz/videos/dog.mp4"
+    homePoster = "./images/toy-story.gif"
+    homeVideoWebm = "./images/toy-story.gif"
+    homeVideoMp4 = "./images/toy-story.gif"
     homeLogo = "/icons/android-chrome-512x512.png"
     homeLogoLink = "/home/"
     homeTitle = "SuperStrings"
     homeMotto = "Just for Fun"
     homeDescription = "从来没有真正的绝境，只有心灵的迷途"
-    homeKeywords = "佛为心，道为骨，儒为表，大度看世界；技在手，能在身，思在脑，从容过生活。三千年读史，不外功名利禄；九万里悟道，终归诗酒田园。---南怀瑾"
+    homeKeywords = "我受过孔子的教诲；听过梵天的真理；也曾坐在菩提树下，伴随过佛祖释迦牟尼。可我现在仍是懵懵懂懂，信不信神明，我还在斗争。---纪伯伦"
     homeLinksDelimiter = "·"
 
 
@@ -584,19 +619,13 @@ uglyURLs = false
 
 
     ######################################
-    # InstantClick
-
-    enableInstantClick = true
-
-
-    ######################################
     # Service Worker
 
     # 说明：仅在生产环境（production）下渲染
 
     enableServiceWorker = true
     # 说明：需要第三方支持，暂见：
-    #      https://io-oi.me/tools/pwa-via-workbox/
+    #      https://io-oi.me/tech/pwa-via-workbox/
 
 
     ######################################
@@ -808,6 +837,11 @@ uglyURLs = false
     # 是否显示目录标题
     displayTOCTitle = true
 
+    # 是否显示数字（全局设置）
+    displayTOCNum = true
+    # 说明：文章的 Front Matter 中的 `tocNum`
+    #      的优先级高于此处
+
     # 是否链接文章的分节标题到目录
     linkHeadingsToTOC = true
 
@@ -873,8 +907,11 @@ uglyURLs = false
 
     # 说明：仅在生产环境（production）下渲染
     #
-    #      只支持相对于站点根目录的绝对链接
+    #      只支持相对于网站根目录的绝对链接
     #      比如：/videos/meme.mp4
+    #
+    #      且你添加的 HTML 代码必需以以下开头：
+    #      `<video src="`
 
     # 是否开启
     enableVideoHost = true
@@ -917,26 +954,26 @@ uglyURLs = false
     # 品牌栏
     fontFamilySiteBrand = ""
     # 菜单栏
-    fontFamilyMenu = "'Noto Serif SC', serif"
+    fontFamilyMenu = ""
     # 文章标题、文章副标题、列表标题、列表的年份和月份标题、相关文章标题、文章上下篇标题、表格的表头、定义列表中的术语
-    fontFamilyTitle = "'Cinzel Decorative', 'EB Garamond', 'Noto Serif SC', serif"
+    fontFamilyTitle = "'Noto Serif SC', 'EB Garamond', serif"
     # 分节标题、目录标题
-    fontFamilyHeadings = "'Ma Shan Zheng', 'EB Garamond', 'Noto Serif SC', serif"
+    fontFamilyHeadings = "'Noto Serif SC', 'EB Garamond', serif"
     # 代码、上标、文章元信息、文章更新徽章、文章的 Git 版本信息、极简页脚、不蒜子站点浏览计数
-    fontFamilyCode = "'Source Code Pro', STKaiti, 'Noto Serif SC', monospace"
+    fontFamilyCode = "'Source Code Pro', 'Noto Serif SC', monospace"
     # 引用
-    fontFamilyQuote = "'EB Garamond', STFangsong, 'Noto Serif SC', serif"
+    fontFamilyQuote = ""
     # 文章目录
-    fontFamilyTOC = "'EB Garamond', STKaiti, 'Noto Serif SC', serif"
+    fontFamilyTOC = ""
     # 说明文字
-    fontFamilyCaption = "'EB Garamond', STKaiti, 'Noto Serif SC', serif"
+    fontFamilyCaption = ""
     # 页脚
-    fontFamilyFooter = "'EB Garamond', 'Long Cang', STKaiti, 'Noto Serif SC', serif"
+    fontFamilyFooter = ""
     # 主体
-    fontFamilyBody = "'EB Garamond', STShusong, 'Noto Serif SC', serif"
+    fontFamilyBody = "'EB Garamond', 'Noto Serif SC', serif"
 
     # 网络字体链接
-    fontsLink = "https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i|Noto+Serif+SC:400,500,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Ma+Shan+Zheng|Long+Cang&display=swap&subset=chinese-simplified"
+    fontsLink = "https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,500,700,700i|Noto+Serif+SC:400,500,700|Source+Code+Pro:400,400i,700,700i&display=swap"
     # 说明：要想读者一定体验到你设置的字体，最好
     #      采用网络字体。MemE 主题目前仅支持
     #      Google Fonts 的链接，请前往
@@ -965,6 +1002,11 @@ uglyURLs = false
     # 是否开启
     enableParagraphIndent = true
 
+    # 是否缩进第一段（全局设置）
+    indentFirstParagraph = false
+    # 说明：文章的 Front Matter 中的 `indentFirstParagraph`
+    #      的优先级高于此处
+
     # 分段样式（全局设置）
     paragraphStyle = "indent"
     # 说明：段间距式（margin）或段首缩排（indent）
@@ -977,7 +1019,7 @@ uglyURLs = false
     # 是否开启（全局设置）
     enableJustify = true
     # 说明：文章的 Front Matter 中的 `align`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     ######################################
     ## 首字下沉
@@ -985,17 +1027,17 @@ uglyURLs = false
     # 是否开启（全局设置）
     enableDropCap = false
     # 说明：文章的 Front Matter 中的 `dropCap`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     # 是否在每一分隔线之后首字下沉（全局设置）
     enableDropCapAfterHr = false
     # 说明：文章的 Front Matter 中的 `dropCapAfterHr`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     # 是否删除首字下沉前的分隔线（全局设置）
     deleteHrBeforeDropCap = false
     # 说明：文章的 Front Matter 中的 `deleteHrBeforeDropCap`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     ######################################
     ## 大型小写（英文）
@@ -1004,7 +1046,7 @@ uglyURLs = false
     enableSmallCaps = false
     # 说明：只会应用到分节标题和目录标题
     #      文章的 Front Matter 中的 `smallCaps`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     ######################################
     ## 着重号
@@ -1031,7 +1073,7 @@ uglyURLs = false
     # 是否显示（全局设置）
     displayPostCopyright = false
     # 说明：文章的 Front Matter 中的 `displayCopyright`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
 
     ######################################
@@ -1043,7 +1085,7 @@ uglyURLs = false
     # 是否显示（全局设置）
     displayUpdatedBadge = false
     # 说明：文章的 Front Matter 中的 `badge`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     # 是否添加 `title`
     enableBadgeTitle = true
@@ -1060,7 +1102,7 @@ uglyURLs = false
     # 是否显示（全局设置）
     displayPostGitInfo = true
     # 说明：文章的 Front Matter 中的 `gitinfo`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     # 仓库地址
     repoURL = "https://github.com/superstring-max/superstrings.xyz"
@@ -1093,6 +1135,31 @@ uglyURLs = false
 
 
     ######################################
+    # 文章分享
+
+    # 是否开启
+    enablePostShare = true
+
+    # 是否显示（全局设置）
+    displayPostShare = true
+    # 说明：文章的 Front Matter 中的 `share`
+    #      的优先级高于此处
+
+    displayShareOnText = false
+
+    shareOnTwitter = true
+    shareOnFacebook = true
+    shareOnLinkedIn = true
+    shareOnTelegram = true
+    shareOnWeibo = true
+    shareOnDouban = true
+    shareOnQQ = true
+    shareOnQzone = true
+
+    shareViaQRCode = true
+
+
+    ######################################
     # 相关文章
 
     # 是否开启
@@ -1101,7 +1168,7 @@ uglyURLs = false
     # 是否显示（全局设置）
     displayRelatedPosts = false
     # 说明：文章的 Front Matter 中的 `related`
-    #      的的优先级高于此处
+    #      的优先级高于此处
 
     # 相关文章数
     relatedPostsNumber = 5
@@ -1172,8 +1239,9 @@ uglyURLs = false
 
     # 是否开启
     enableFooter = false
-    # 说明：「诗意人生」和「视频片段」首页布局
-    #      的首页没有页脚
+
+    # 是否在首页显示
+    displayFooterInHome = true
 
     # 是否显示版权符号（©）
     displayCopyrightSymbol = true
@@ -1214,7 +1282,7 @@ uglyURLs = false
     enableLangToggle = true
 
     # 是否在首页隐藏多语言按钮
-    hideLangToggleInHome = false
+    hideLangToggleInHome = true
 
     # 是否自动隐藏多语言按钮
     autoHideLangToggle = true
@@ -1262,6 +1330,13 @@ uglyURLs = false
 
     enableMediumZoom = true
     # 说明：https://github.com/francoischalifour/medium-zoom
+
+
+    ######################################
+    # Instant Page
+
+    enableInstantPage = true
+    # 说明：https://github.com/instantpage/instant.page
 
 
     ######################################

@@ -8,9 +8,150 @@
                 {{ end }}
                 <div class="post-body">
                     <hr class="coldplay" />
-                    <video src="{{ printf `%s%s` .Site.Params.videoHostURL .Params.video }}" controls></video>
+                    <!-- <video src="{{ printf `%s%s` .Site.Params.videoHostURL .Params.video }}" controls></video> -->
                     <div style="text-align: center">❤ evoL ni eveileB</div>
                     <hr class="coldplay" />
+                    <div id="cans">
+                        <!-- <video controls="controls" id="video"　src="" height="500px" width="500px"></video> -->
+                        <style type="text/css">
+                            #dplayer-video-container {
+                                max-width: 800px;
+                                margin: 0 auto;
+                                margin-top: -1rem;
+                            }
+                            @media screen and (max-device-width: 400px) {
+                                #dplayer {
+                                    width: 100%;
+                                }
+                            }
+                        </style> 
+                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.css">
+                         <div id="dplayer-video-container">
+                             <div id="dplayer"></div>
+                         <div>
+                        <script src="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.js"></script>
+                        <script>
+                            const dp = new DPlayer({
+                                container: document.getElementById('dplayer'),  //播放器容器元素
+                                autoplay: false,                                //视频自动播放
+                                theme:	'#b7daff',                              //主题色
+                                loop: true,                                     //视频循环播放
+                                lang: 'zh-cn',                                  //播放器语言设置
+                                screenshot: true,                              //开启截图
+                                hotkey: true, 	                                //开启热键                    
+                                preload: 'auto',                                //开启预加载
+                                volume	: 0.7,                                  //默认音量
+                                mutex: true,                                    //互斥，阻止多个播放器同时播放
+                                video: {
+                                    url: '',      //视频地址
+                                    type: 'normal'
+                                },
+                                contextmenu: [                                  //自定义右键菜单
+                                    {
+                                        text: '本博客地址',
+                                        link: 'https://cfzhous.com'
+                                    },
+                                    {
+                                        text: '播放器信息',
+                                        click: (player) => {
+                                            console.log(player);
+                                        }
+                                    }
+                                ]
+                            });
+                        </script>
+                        <aside id="playList">
+                            <header>
+                                <h4>播放列表</h4>
+                            </header>
+                            <ul>
+                                {{.Content}}
+                            </ul>
+                            <!-- <button title="收起播放列表" id="playList-hidden"> < </button> -->
+                        </aside>
+                        <!-- <button title="展开播放列表" id="playList-show1"> > </button> -->
+                    </div>
+                    <script>
+                        var video = document.getElementById("video");
+                        var lis = document.getElementsByTagName("li");
+                        var vLen = lis.length; // 播放列表的长度
+                        var url = [];
+                        var ctrl = document.getElementById("playList-hidden");
+                        var ctrl_show = document.getElementById('playList-show1');
+                        var aside = document.getElementById("playList");
+                        var curr = 1; // 当前播放的视频
+                        for(var i=0;i<lis.length;i++){
+
+                                url[i] = lis[i].getAttribute("value");
+
+                        }
+                        //绑定单击事件
+                        for(var i=0;i<lis.length;i++){
+
+                            lis[i].onclick = function(){
+                                for(var j=0;j<lis.length;j++){
+                                    if(lis[j] == this){
+                                        dp.switchVideo({url: 'http://video.cfzhous.com/'+this.getAttribute("value"),type: 'normal'}); //获取src路径
+                                        dp.play();//自动播放
+                                        this.innerHTML = 'palying '+this.innerHTML;//点击后的列表显示
+                                        this.className = "select";//点击后的列表显示
+                                        curr = j+1;//定位下一播放位置
+                                    }else{
+                                        lis[j].innerHTML = lis[j].getAttribute("title");//没有点击的列表显示
+                                        lis[j].className = "";
+                                    }
+                                }
+                            }
+
+                        }
+                        //顺序播放
+                        video.setAttribute('src',url[0]);
+                        lis[0].innerHTML = 'palying '+lis[0].innerHTML;
+                        lis[0].className = "select";
+
+                        video.addEventListener('ended', play);//添加侦听事件，视频播放完后调用play（）方法
+                        //play();
+                        function play() {
+                        video.src = url[curr];
+                        video.load(); 
+                        video.play();
+
+                        for(var j=0;j<lis.length;j++){
+                                if(j == curr){
+                                    video.setAttribute("src",lis[j].getAttribute("value"));
+                                    video.setAttribute('autoplay','autoplay');
+                                    lis[j].innerHTML = 'palying '+lis[j].innerHTML;
+                                    lis[j].className = "select";
+                                }else{
+                                    lis[j].innerHTML = lis[j].getAttribute("title");
+                                    lis[j].className = "";
+                                }
+                            }
+                        curr++;
+                        if (curr >= vLen) curr = 0; // 播放完了，重新播放
+                        }
+                        //收起播放列表
+                        ctrl.onclick = function(){
+
+                        aside.style.transition = "1s";
+                        aside.style.transform = "translateX(-10vw)";
+                        setTimeout(function(){
+                            aside.style.display = "none";
+                            ctrl_show.style.visibility= 'visible';
+                        },"1000");
+
+                        }
+
+                        //展开播放列表
+                        ctrl_show.onclick = function(){
+                        aside.style.display = "block";
+                        ctrl_show.style.visibility= 'hidden';
+                        setTimeout(function(){
+                            aside.style.transform = "translateX(0vw)";
+                        },"0");
+
+                        }
+                    </script>
                     <div class="coldplay-footer">— {{ with .Params.info }}{{ printf `%s | ` (. | markdownify) | safeHTML }}{{ end }}more @ <a href="/coldplay/">Coldplay</a></div>
                 </div>
             </article>
